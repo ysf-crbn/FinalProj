@@ -9,7 +9,7 @@ using namespace std;
 class Doctor {
     public:
         Doctor();
-        Doctor(string fname, string lname, long int doc_id, string specialty, int years_experience, double salary, double bonus);
+        Doctor(istream &is);
 
         void set_first_name(string name);
         void set_last_name(string name);

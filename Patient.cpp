@@ -75,9 +75,7 @@ bool Patient::is_discharged() {
     return true;
 }
 
-string Patient::patient_status() {
-
-}
+//string Patient::patient_status() {}
 
 void Patient::print_patient_info() {
 

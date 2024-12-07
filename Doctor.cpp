@@ -1,10 +1,16 @@
 #include <iostream>
 #include <string>
 #include "Doctor.h"
+
+#include <__chrono/year.h>
 using namespace std;
 
 Doctor::Doctor() {}
-
+Doctor::Doctor(istream &is) {
+    is >> first_name >> last_name >> doctor_id;
+    is >> specialization >> years_experience;
+    is >> base_salary >> performance_bonus;
+}
 
 void Doctor::set_first_name(string name) {
     name = name;
