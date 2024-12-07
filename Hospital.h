@@ -2,7 +2,6 @@
 #define HOSPITAL_H
 
 #include <iostream>
-#include <string>
 #include <vector>
 #include "Doctor.h"
 #include "Patient.h"
@@ -12,6 +11,7 @@ using namespace std;
 class Hospital {
     public:
         Hospital();
+        ~Hospital();
 
         void find_oldest_patient();
         int count_critical_patients();
@@ -22,8 +22,8 @@ class Hospital {
         void show_assigned_patients(long int doctor_id);
 
     private:
-        vector<const Doctor*> doctors;
-        vector<const Patient*> patients;
+        vector<const Doctor*> *doctors;
+        vector<const Patient*> *patients;
 };
 
 

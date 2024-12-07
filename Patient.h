@@ -9,17 +9,17 @@ using namespace std;
 class Patient {
     public:
         Patient();
+        Patient(istream &is);
 
-        void set_first_name(string first_name);
-        void set_last_name(string last_name);
+        void set_first_name(string name);
+        void set_last_name(string name);
         void set_id(long int id);
-        void set_assigned_doctor_id(long int doctor_id);
-        void set_birth_date(long int birth_date);
-        void set_blood_type(string b_type);
+        void set_assigned_doctor_id(long int id);
+        void set_birth_date(long int date);
+        void set_blood_type(string type);
         void set_diagnosis(string status);
-        void set_admission_date(long int admission_date);
-        void set_discharge_date(long int discharge_date);
-
+        void set_admission_date(long int date);
+        void set_discharge_date(long int date);
 
         string get_first_name();
         string get_last_name();
@@ -36,17 +36,15 @@ class Patient {
         void print_patient_info();
 
     private:
-        string patient_first_name;
-        string patient_last_name;
-        long int patient_id;
+        string first_name;
+        string last_name;
+        long int id;
         long int assigned_doctor_id;
-        long int date_of_birth;
+        long int birthdate;
         string blood_type;
         string diagnosis;
-        long int date_of_admission;
-        long int date_of_discharge;
-
-
+        long int admission_date;
+        long int discharge_date;
 };
 
 #endif //PATIENT_H
