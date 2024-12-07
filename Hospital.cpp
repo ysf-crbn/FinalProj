@@ -9,11 +9,11 @@
 
 using namespace std;
 
-Hospital::Hospital() {
+Hospital::Hospital(string doctor_file, string patient_file) {
     doctors = new vector<const Doctor*>();
     patients = new vector<const Patient*>();
 
-    ifstream dfile("doctors.txt");
+    ifstream dfile(doctor_file);
     string line;
     getline(dfile, line);
     int doctor_count = stoi(line);
@@ -24,7 +24,7 @@ Hospital::Hospital() {
     }
     dfile.close();
 
-    ifstream pfile("patients.txt");
+    ifstream pfile(patient_file);
     getline(pfile, line);
     int patient_count = stoi(line);
     for (int i = 1; i <= patient_count; i++) {
@@ -42,7 +42,9 @@ Hospital::~Hospital() {
 void Hospital::find_oldest_patient() {
 
 }
-//int Hospital::count_critical_patients() {}
+int Hospital::count_critical_patients() {
+
+}
 void Hospital::doctors_by_specialization() {
 
 }

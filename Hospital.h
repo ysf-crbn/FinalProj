@@ -10,7 +10,7 @@ using namespace std;
 
 class Hospital {
     public:
-        Hospital();
+        Hospital(string doctor_file, string patient_file);
         ~Hospital();
 
         void find_oldest_patient();
