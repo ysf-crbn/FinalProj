@@ -76,12 +76,24 @@ void Hospital::doctors_by_specialization() {
 
 }
 
-void Hospital::show_patient_by_id(long int id) {
-
+const Patient* Hospital::show_patient_by_id(long int id) const {
+    const Patient* patient = nullptr;
+    for (int i = 0; i < patients->size(); i++) {
+        if (patients->at(i)->get_id() == id) {
+            patient = patients->at(i);
+        }
+    }
+    return patient;
 }
 
-void Hospital::show_doctor_by_id(long int doctor_id) {
-
+const Doctor* Hospital::show_doctor_by_id(long int doctor_id) const {
+    const Doctor* doctor = nullptr;
+    for (int i = 0; i < doctors->size(); i++) {
+        if (doctors->at(i)->get_doctor_id() == doctor_id) {
+            doctor = doctors->at(i);
+        }
+    }
+    return doctor;
 }
 
 void Hospital::show_assigned_doctor(long int id) {

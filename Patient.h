@@ -8,9 +8,11 @@ using namespace std;
 
 class Patient {
     public:
+        // Constructors
         Patient();
         Patient(istream &is);
 
+        // Setters
         void set_first_name(const string &name);
         void set_last_name(const string &name);
         void set_id(long int id);
@@ -21,6 +23,7 @@ class Patient {
         void set_admission_date(long int date);
         void set_discharge_date(long int date);
 
+        // Getters
         string get_first_name();
         string get_last_name();
         long int get_id() const;
@@ -31,11 +34,13 @@ class Patient {
         long int get_admission_date() const;
         long int get_discharge_date() const;
 
+        // Methods
         bool is_discharged() const;
         string patient_status() const;
         void print_patient_info() const;
 
     private:
+        // Attributes
         string first_name;
         string last_name;
         long int id;
