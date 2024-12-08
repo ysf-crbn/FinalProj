@@ -13,8 +13,8 @@ class Hospital {
         Hospital(string doctor_file, string patient_file);
         ~Hospital();
 
-        void find_oldest_patient();
-        int count_critical_patients();
+        const Patient *find_oldest_patient() const;
+        int count_critical_patients() const;
         void doctors_by_specialization();
         void show_patient_by_id(long int id);
         void show_doctor_by_id(long int doctor_id);

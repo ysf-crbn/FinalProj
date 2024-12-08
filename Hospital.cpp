@@ -36,27 +36,58 @@ Hospital::Hospital(string doctor_file, string patient_file) {
 }
 
 Hospital::~Hospital() {
-
+    if (doctors) {
+        for (int i = 0; i < doctors->size(); i++) {
+            delete doctors->at(i);
+        }
+        delete doctors;
+    }
+    if (patients) {
+        for (int i = 0; i < patients->size(); i++) {
+            delete patients->at(i);
+        }
+        delete patients;
+    }
 }
 
-void Hospital::find_oldest_patient() {
-
+const Patient *Hospital::find_oldest_patient() const {
+    const Patient* oldest_patient = nullptr;
+    for (int i = 0; i < patients->size(); i++) {
+        if (oldest_patient == nullptr) {
+            oldest_patient = patients->at(i);
+        } else if (oldest_patient->get_birth_date() > patients->at(i)->get_birth_date()) {
+            oldest_patient = patients->at(i);
+        }
+    }
+    return oldest_patient;
 }
-int Hospital::count_critical_patients() {
 
+int Hospital::count_critical_patients() const {
+    int critical_patient_count = 0;
+    for (int i = 0; i < patients->size(); i++) {
+        if (patients->at(i)->patient_status().compare("Critical") == 0) {
+            critical_patient_count++;
+        }
+    }
+    return critical_patient_count;
 }
+
 void Hospital::doctors_by_specialization() {
 
 }
+
 void Hospital::show_patient_by_id(long int id) {
 
 }
+
 void Hospital::show_doctor_by_id(long int doctor_id) {
 
 }
+
 void Hospital::show_assigned_doctor(long int id) {
 
 }
+
 void Hospital::show_assigned_patients(long int doctor_id) {
 
 }

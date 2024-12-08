@@ -11,24 +11,24 @@ class Doctor {
         Doctor();
         Doctor(istream &is);
 
-        void set_first_name(string name);
-        void set_last_name(string name);
+        void set_first_name(const string &name);
+        void set_last_name(const string &name);
         void set_doctor_id(long int id);
-        void set_specialization(string specialty);
+        void set_specialization(const string &specialty);
         void set_years_experience(int years);
         void set_base_salary(double salary);
         void set_performance_bonus(double bonus);
 
         string get_first_name();
         string get_last_name();
-        long int get_doctor_id();
+        long int get_doctor_id() const;
         string get_specialization();
-        int get_years_experience();
-        double get_base_salary();
-        double get_performance_bonus();
+        int get_years_experience() const;
+        double get_base_salary() const;
+        double get_performance_bonus() const;
 
-        double calculate_salary();
-        void print_doctor_info();
+        double calculate_salary() const;
+        void print_doctor_info() const;
 
     private:
         string first_name;
