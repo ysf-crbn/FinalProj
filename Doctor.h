@@ -9,7 +9,9 @@ using namespace std;
 class Doctor {
     public:
         // Constructors
-        Doctor();
+        Doctor(string first_name, string last_name, long id, string specialization,
+            int years_experience, double base_salary, double performance_bonus);
+
         Doctor(istream &is);
 
         // Setters

@@ -11,7 +11,7 @@ using namespace std;
 class Hospital {
     public:
         // Constructor
-        Hospital(string doctor_file, string patient_file);
+        Hospital(const string& doctor_file, const string& patient_file);
 
         // Destructor
         ~Hospital();
@@ -19,7 +19,7 @@ class Hospital {
         // Methods
         void find_oldest_patient() const;
         int count_critical_patients() const;
-        void doctors_by_specialization(const string& special);
+        void doctors_by_specialty(const string& specialty);
         void show_patient_by_id(long int id) const;
         void show_doctor_by_id(long int doctor_id) const;
         void show_assigned_doctor(long int id);
@@ -27,8 +27,8 @@ class Hospital {
 
     private:
         // Attributes
-        vector<const Doctor*> *doctors;
-        vector<const Patient*> *patients;
+        vector<Doctor*> *doctors;
+        vector<Patient*> *patients;
 };
 
 #endif //HOSPITAL_H

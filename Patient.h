@@ -11,6 +11,7 @@ class Patient {
         // Constructors
         Patient(string first_name, string last_name, long id, long assigned_doctor_id, int birthdate,
                     string blood_type, string diagnosis, long admission_date, long discharge_date);
+        Patient(istream &is);
 
         // Setters
         void set_first_name(const string &name);

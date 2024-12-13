@@ -10,6 +10,14 @@ Patient::Patient(string first_name, string last_name, long id, long assigned_doc
                 birthdate(birthdate), blood_type(blood_type), diagnosis(diagnosis),admission_date(admission_date),
                 discharge_date(discharge_date) {}
 
+Patient::Patient(istream &is) {
+    is >> first_name >> last_name >> id;
+    is >> assigned_doctor_id;
+    is >> birthdate >> blood_type;
+    is >> diagnosis >> admission_date >> discharge_date;
+}
+
+
 void Patient::set_first_name(const string &name) {
     first_name = name;
 }
@@ -84,7 +92,7 @@ string Patient::patient_status() const {
 }
 
 void Patient::print_patient_info() const {
-    cout << "Patient name: " << first_name << " " << last_name << endl;
+    cout << "\nPatient name: " << first_name << " " << last_name << endl;
     cout << "Patient id: " << id << endl;
     cout << "Patient's assigned doctor's id: ";
     if (assigned_doctor_id == -1) {
@@ -97,9 +105,10 @@ void Patient::print_patient_info() const {
     cout << "Patient's diagnosis: " << diagnosis << endl;
     cout << "Patient admitted on: " << admission_date << endl;
     cout << "Patient discharged on: ";
-    if (discharge_date == -1) {
+    if (!is_discharged()) {
         cout << "This patient has not been discharged yet" << endl;
     } else {
         cout << discharge_date << endl;
     }
+    cout << "Patient's status: " << patient_status() << endl;
 }

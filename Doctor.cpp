@@ -5,7 +5,11 @@
 #include <chrono>
 using namespace std;
 
-Doctor::Doctor() {}
+Doctor::Doctor(string first_name, string last_name, long id, string specialization, int years_experience,
+        double base_salary, double performance_bonus)
+        : first_name(first_name), last_name(last_name), doctor_id(id), specialization(specialization),
+        years_experience(years_experience), base_salary(base_salary), performance_bonus(performance_bonus) {}
+
 Doctor::Doctor(istream &is) {
     is >> first_name >> last_name >> doctor_id;
     is >> specialization >> years_experience;
@@ -61,10 +65,11 @@ double Doctor::calculate_salary() const {
 }
 
 void Doctor::print_doctor_info() const {
-    cout << "Doctor's name: " << first_name << " " << last_name << endl;
+    cout << "\nDoctor's name: " << first_name << " " << last_name << endl;
     cout << "Doctor's id: " << doctor_id << endl;
     cout << "Doctor's specialization: " << specialization << endl;
     cout << "Doctor has " << years_experience << " years of experience" << endl;
     cout << "Doctor has a base salary of " << base_salary << "$" << endl;
     cout << "Doctor has a performance bonus of " << performance_bonus << "%" << endl;
+    cout << "Doctor has a total salary of " << calculate_salary() << "$" << endl;
 }
