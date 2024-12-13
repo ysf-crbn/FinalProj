@@ -1,8 +1,0 @@
-# ninja log v6
-410	441	1733600856896254917	FinalProject	b93de33a4bed4f0d
-4	410	1733600856489627148	CMakeFiles/FinalProject.dir/Hospital.cpp.o	7fedcefc5bdd6cf0
-1	635	1733600730594344971	CMakeFiles/FinalProject.dir/Doctor.cpp.o	6f159ca631f4250b
-3	416	1733600799409728112	CMakeFiles/FinalProject.dir/main.cpp.o	6e0ca02c9bacc6b1
-4	419	1733600799410094074	CMakeFiles/FinalProject.dir/Patient.cpp.o	b73cee6a12414664
-1	58	1733601243247625018	build.ninja	bf978f65838b4685
-2	64	1733601243247625018	build.ninja	bf978f65838b4685

@@ -1,3 +1,0 @@
-C:/Users/irmuu/CLionProjects/FinalProj/cmake-build-debug/CMakeFiles/FinalProject.dir
-C:/Users/irmuu/CLionProjects/FinalProj/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/irmuu/CLionProjects/FinalProj/cmake-build-debug/CMakeFiles/rebuild_cache.dir

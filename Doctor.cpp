@@ -70,6 +70,6 @@ void Doctor::print_doctor_info() const {
     cout << "Doctor's specialization: " << specialization << endl;
     cout << "Doctor has " << years_experience << " years of experience" << endl;
     cout << "Doctor has a base salary of " << base_salary << "$" << endl;
-    cout << "Doctor has a performance bonus of " << performance_bonus << "%" << endl;
+    cout << "Doctor has a performance bonus of " << performance_bonus * 100 << "%" << endl;
     cout << "Doctor has a total salary of " << calculate_salary() << "$" << endl;
 }

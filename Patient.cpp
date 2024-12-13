@@ -2,6 +2,8 @@
 #include <string>
 #include "Patient.h"
 
+#include <iomanip>
+
 using namespace std;
 
 Patient::Patient(string first_name, string last_name, long id, long assigned_doctor_id, int birthdate,
@@ -14,9 +16,8 @@ Patient::Patient(istream &is) {
     is >> first_name >> last_name >> id;
     is >> assigned_doctor_id;
     is >> birthdate >> blood_type;
-    is >> diagnosis >> admission_date >> discharge_date;
+    is >> std::quoted(diagnosis) >> admission_date >> discharge_date;
 }
-
 
 void Patient::set_first_name(const string &name) {
     first_name = name;
