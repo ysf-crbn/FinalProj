@@ -9,7 +9,13 @@
 using namespace std;
 
 int main() {
-    Hospital hospital = Hospital("doctors.txt", "patients.txt");
+    try{
+        Hospital hospital("doctors.txt", "patients.txt");
+
+        cout << "Hospital data successfully opened" << endl;
+    }catch (){
+    }
+
 
 
     return 0;

@@ -4,13 +4,11 @@
 
 using namespace std;
 
-Patient::Patient() {}
-Patient::Patient(istream &is) {
-    is >> first_name >> last_name >> id;
-    is >> assigned_doctor_id;
-    is >> birthdate >> blood_type;
-    is >> diagnosis >> admission_date >> discharge_date;
-}
+Patient::Patient(string first_name, string last_name, long id, long assigned_doctor_id, int birthdate,
+                string blood_type, string diagnosis, long admission_date, long discharge_date)
+                : first_name(first_name), last_name(last_name), id(id), assigned_doctor_id(assigned_doctor_id),
+                birthdate(birthdate), blood_type(blood_type), diagnosis(diagnosis),admission_date(admission_date),
+                discharge_date(discharge_date) {}
 
 void Patient::set_first_name(const string &name) {
     first_name = name;
@@ -40,10 +38,10 @@ void Patient::set_discharge_date(const long int date) {
     discharge_date = date;
 }
 
-string Patient::get_first_name() {
+string Patient::get_first_name() const {
     return first_name;
 }
-string Patient::get_last_name() {
+string Patient::get_last_name() const{
     return last_name;
 }
 long int Patient::get_id() const {

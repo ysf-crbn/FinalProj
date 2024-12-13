@@ -50,7 +50,7 @@ Hospital::~Hospital() {
     }
 }
 
-const Patient *Hospital::find_oldest_patient() const {
+void Hospital::find_oldest_patient() const{
     const Patient* oldest_patient = nullptr;
     for (int i = 0; i < patients->size(); i++) {
         if (oldest_patient == nullptr) {
@@ -59,7 +59,13 @@ const Patient *Hospital::find_oldest_patient() const {
             oldest_patient = patients->at(i);
         }
     }
-    return oldest_patient;
+    if (oldest_patient) {
+        cout << "Oldest Patient: ID: " << oldest_patient->get_id()
+             << ", Name: " << oldest_patient->get_first_name() << " " << oldest_patient->get_last_name()
+             << ", Birth Date: " << oldest_patient->get_birth_date() << endl;
+    } else {
+        cout << "No patients found in the system." << endl;
+    }
 }
 
 int Hospital::count_critical_patients() const {
@@ -72,34 +78,82 @@ int Hospital::count_critical_patients() const {
     return critical_patient_count;
 }
 
-void Hospital::doctors_by_specialization() {
-
+void Hospital::doctors_by_specialization(const string& special) {
+    vector<string> special_doctors;
+    for (const auto &doctor : doctors){
+        if (doctor->get_specialization() == special){
+            special_doctors.push_back(doctor->get_first_name() + " " + doctor->get_last_name());
+        }
+    }
+    if (special_doctors.empty()){
+        cout << "No doctors with specialization "<< special << " found." << endl;
+    }else{
+        cout << "Doctors "<< special << " " << endl;
+        for (const auto &doctor : special_doctors){
+            cout << doctor << endl;
+        }
+    }
 }
 
-const Patient* Hospital::show_patient_by_id(long int id) const {
-    const Patient* patient = nullptr;
+void Hospital::show_patient_by_id(long int id) const {
+    bool patient_found = false;
     for (int i = 0; i < patients->size(); i++) {
         if (patients->at(i)->get_id() == id) {
-            patient = patients->at(i);
+            patient_found = true;
+            patients->at(i)->print_patient_info();
         }
     }
-    return patient;
+    if(!patient_found){
+        cout << "No patient has the provided ID" << endl;
+    }
 }
 
-const Doctor* Hospital::show_doctor_by_id(long int doctor_id) const {
-    const Doctor* doctor = nullptr;
+void Hospital::show_doctor_by_id(long int doctor_id) const {
+    bool patient_found = false;
     for (int i = 0; i < doctors->size(); i++) {
         if (doctors->at(i)->get_doctor_id() == doctor_id) {
-            doctor = doctors->at(i);
+            patient_found = true;
+            doctors->at(i)->print_doctor_info();
         }
     }
-    return doctor;
+    if(!patient_found){
+        cout << "No doctor has the provided ID" << endl;
+    }
 }
 
-void Hospital::show_assigned_doctor(long int id) {
 
+void Hospital::show_assigned_doctor(long int id) {
+    bool found_patient = false;
+    for (const auto& patient : patients) {
+        if (patient->get_id() == id) {
+            found_patient = true;
+            for (const auto& doctor : doctors) {
+                if (doctor->get_doctor_id() == patient->get_doctor_id()) {
+                    cout << "The assigned doctor for patient " << id << " is \n"
+                         << doctor->get_first_name() << " "
+                         << doctor->get_last_name() << "." << endl;
+                    return;
+                }
+            }
+            cout << "The assigned doctor is not found for the patient with ID " << id << "." << endl;
+            return;
+        }
+    }
+    if (!found_patient) {
+        cout << "No patient found with ID " << id << "." << endl;
+    }
 }
 
 void Hospital::show_assigned_patients(long int doctor_id) {
-
+    bool assigned_patients = false;
+    cout << "Patients assigned to Doctor with ID " << doctor_id << ":" << endl;
+    for (const auto& patient : patients) {
+        if (patient->get_doctor_id() == doctor_id){
+            assigned_patients = true;
+            patient-> print_patient_info();
+        }
+    }
+    if (!assigned_patients) {
+        cout << "No patients assigned to Doctor ID " << doctor_id << "." << endl;
+    }
 }

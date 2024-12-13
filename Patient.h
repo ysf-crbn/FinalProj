@@ -9,8 +9,8 @@ using namespace std;
 class Patient {
     public:
         // Constructors
-        Patient();
-        Patient(istream &is);
+        Patient(string first_name, string last_name, long id, long assigned_doctor_id, int birthdate,
+                    string blood_type, string diagnosis, long admission_date, long discharge_date);
 
         // Setters
         void set_first_name(const string &name);
@@ -24,8 +24,8 @@ class Patient {
         void set_discharge_date(long int date);
 
         // Getters
-        string get_first_name();
-        string get_last_name();
+        string get_first_name() const;
+        string get_last_name() const;
         long int get_id() const;
         long int get_doctor_id() const;
         long int get_birth_date() const;

@@ -17,11 +17,11 @@ class Hospital {
         ~Hospital();
 
         // Methods
-        const Patient *find_oldest_patient() const;
+        void find_oldest_patient() const;
         int count_critical_patients() const;
-        void doctors_by_specialization();
-        const Patient* show_patient_by_id(long int id) const;
-        const Doctor* show_doctor_by_id(long int doctor_id) const;
+        void doctors_by_specialization(const string& special);
+        void show_patient_by_id(long int id) const;
+        void show_doctor_by_id(long int doctor_id) const;
         void show_assigned_doctor(long int id);
         void show_assigned_patients(long int doctor_id);
 
